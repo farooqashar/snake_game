@@ -5,7 +5,7 @@ This is a terminal-based Python Snake Game where users need to hit the target in
 ## Cloning and Playing Locally
 
 ```
-git clone https://github.com/farooqashar/chat.git
+git clone https://github.com/farooqashar/snake_game.git
 ```
 
 ## Starting Game
