@@ -14,3 +14,11 @@ git clone https://github.com/farooqashar/snake_game.git
 python3 snake_game.py
 ```
 
+**Gameplay Example**
+
+![Gameplay Example](https://raw.githubusercontent.com/farooqashar/snake_game/readme_images/images/game.png)
+
+
+**Game Configuration Settings Example**
+
+![Game Configuration Settings Example](https://raw.githubusercontent.com/farooqashar/snake_game/readme_images/images/terminal.png)
