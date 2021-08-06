@@ -15,3 +15,21 @@ new_game_window.timeout(110)
 
 snake_x = screen_width/8
 snake_y = screen_height/4
+
+snake = [
+    [snake_y,snake_x],
+    [snake_y-1,snake_x],
+    [snake_y-2,snake_x],
+    [snake_y-3,snake_x]
+]
+
+target = (screen_width/4, screen_height/4)
+target_x = target[0]
+target_y = target[1]
+
+new_game_window.addch(target_y,target_x, curses.ACS_DIAMOND)
+
+key = curses.KEY_LEFT
+
+while True:
+    pass
