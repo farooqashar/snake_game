@@ -1,14 +1,25 @@
 import random
 import curses
 
+customization = input("Would You Like To Customize Game Settings? (Y or n)")
+
+if str(customization) == "Y":
+    speed = input("Enter game speed: (default: 125)")
+    initial_direction = input("Enter Initial Direction of Snake: (N or S or E or W")
+    
 stdscr = curses.initscr()
-curses.curs_set(0)
+curses.curs_set(1)
 height, width = stdscr.getmaxyx()
 
 new_game_window = curses.newwin(height, width, 0, 0)
 new_game_window.keypad(1)
-new_game_window.timeout(125)
 
+try:
+    new_game_window.timeout(int(speed))
+except:
+    new_game_window.timeout(125)
+
+new_game_window.timeout(125)
 snake_x = width/2
 snake_y = height/8
 snake = [
@@ -22,7 +33,19 @@ snake = [
 target = [height/2, width/2]
 new_game_window.addch(int(target[0]), int(target[1]), curses.ACS_DIAMOND)
 
-key = curses.KEY_DOWN
+try: 
+
+    if initial_direction == "N":
+        key = curses.KEY_DOWN
+    if initial_direction == "E":
+        key = curses.KEY_RIGHT
+    if initial_direction == "S":
+        key = curses.KEY_DOWN
+    if initial_direction == "W":
+        key = curses.KEY_LEFT  
+except:
+    key = curses.KEY_DOWN  
+
 
 while True:
     next_key = new_game_window.getch()
