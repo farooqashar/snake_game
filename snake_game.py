@@ -1,7 +1,7 @@
 import random
 import curses
 
-while True:        
+def game():        
     customization = input("Would You Like To Customize Game Settings? (Y or n) ")
 
     if str(customization) == "Y":
@@ -100,4 +100,8 @@ while True:
             quit()
 
 if __name__ == "__main__":
-    pass
+    print("Starting Snake Game...")
+    try:
+        game()
+    except:
+        print("Ending Snake Game...")
