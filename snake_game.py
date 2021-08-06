@@ -1,5 +1,6 @@
 import random
 import curses
+from datetime import datetime
 
 def game():        
     customization = input("Would You Like To Customize Game Settings? (Y or n) ")
@@ -100,9 +101,14 @@ def game():
             quit()
 
 if __name__ == "__main__":
+
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+
+    print("It is currently " + current_time)
     print("Starting Snake Game...")
+
     try:
         game()
     except:
         print("Ending Snake Game...")
-        
