@@ -1,12 +1,13 @@
 import random
 import curses
 
-customization = input("Would You Like To Customize Game Settings? (Y or n)")
+customization = input("Would You Like To Customize Game Settings? (Y or n) ")
 
 if str(customization) == "Y":
-    speed = input("Enter game speed: (default: 125)")
-    initial_direction = input("Enter Initial Direction of Snake: (N or S or E or W")
-    
+    speed = input("Enter game speed: (default: 125) ")
+    initial_direction = input("Enter Initial Direction of Snake: (N or S or E or W) ")
+    target_type = int(input("Enter Your Choice of Target: (1 for PI and 2 for Diamond) "))
+
 stdscr = curses.initscr()
 curses.curs_set(1)
 height, width = stdscr.getmaxyx()
@@ -31,7 +32,11 @@ snake = [
 ]
 
 target = [height/2, width/2]
-new_game_window.addch(int(target[0]), int(target[1]), curses.ACS_DIAMOND)
+if target_type == 1:
+    new_game_window.addch(int(target[0]), int(target[1]), curses.ACS_PI)
+else:
+    new_game_window.addch(int(target[0]), int(target[1]), curses.ACS_DIAMOND)
+
 
 try: 
 
@@ -77,7 +82,11 @@ while True:
                 random.randint(1, width-1)
             ]
             target = new_target if new_target not in snake else None
-        new_game_window.addch(target[0], target[1], curses.ACS_DIAMOND)
+        
+        if target_type == 1:
+            new_game_window.addch(target[0], target[1], curses.ACS_PI)
+        else:
+            new_game_window.addch(target[0], target[1], curses.ACS_DIAMOND)
     else:
         snake_end = snake.pop()
         new_game_window.addch(int(snake_end[0]), int(snake_end[1]), ' ')
