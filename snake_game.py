@@ -4,7 +4,7 @@ from datetime import datetime
 
 def game():        
     customization = input("Would You Like To Customize Game Settings? (Y or n) ")
-
+    score = 0
     if str(customization) == "Y":
         speed = input("Enter game speed: (default: 125) ")
         initial_direction = input("Enter Initial Direction of Snake: (N or S or E or W) ")
@@ -63,6 +63,7 @@ def game():
         if snake[0][0] in [0, height] or snake[0][1]  in [0, width] or snake[0] in snake[1:]:
             curses.endwin()
             print("You lost :(")
+            print("Your Score: ",score)
             quit()
 
         new_head = [snake[0][0], snake[0][1]]
@@ -79,12 +80,14 @@ def game():
         snake.insert(0, new_head)
 
         if snake[0] == target:
+            score += 10
             target = None
             while target is None:
                 new_target = [
                     random.randint(1, height-1),
                     random.randint(1, width-1)
                 ]
+
                 target = new_target if new_target not in snake else None
             
             if target_type == 1:
@@ -98,6 +101,7 @@ def game():
             new_game_window.addch(int(snake[0][0]), int(snake[0][1]), curses.ACS_CKBOARD)
         except:
             print("You lost :(")
+            print("Your Score: ",score)
             quit()
 
 if __name__ == "__main__":
