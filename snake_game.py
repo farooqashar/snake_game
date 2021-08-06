@@ -7,7 +7,9 @@ if str(customization) == "Y":
     speed = input("Enter game speed: (default: 125) ")
     initial_direction = input("Enter Initial Direction of Snake: (N or S or E or W) ")
     target_type = int(input("Enter Your Choice of Target: (1 for PI and 2 for Diamond) "))
-
+else:
+    target_type = 2
+    
 stdscr = curses.initscr()
 curses.curs_set(1)
 height, width = stdscr.getmaxyx()
